@@ -24,3 +24,20 @@ total = len(nums)
 print(total)
 
 print(nums)
+
+
+for n in nums: 
+    if n <=10:
+        print(n, end=" ")
+
+for indice in range(len(nums)): 
+    if nums[indice] <= 10:
+        print(nums[indice], end=" ")
+        
+        
+        
+        
+soma = sum(nums)
+maior = max(nums)
+menor = min(nums)
+media = soma/ len(nums)

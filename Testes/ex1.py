@@ -9,29 +9,29 @@ for _ in range(5):
     print("Valor de y = ", y)
 
 
-x = y+z 
-print("\nValor de x = ", x)
+# x = y+z 
+# print("\nValor de x = ", x)
 
 
-print("\n\nFatiamentos: ")
-texto = "Calor"
-print(texto[0])
-print(texto[1: 4])
-print(texto[:3])
-print(texto[1:])
+# print("\n\nFatiamentos: ")
+# texto = "Calor"
+# print(texto[0])
+# print(texto[1: 4])
+# print(texto[:3])
+# print(texto[1:])
 
 
-texto2 = "Tiago Massinha"
-num_vogals = 0 
+# texto2 = "Tiago Massinha"
+# num_vogals = 0 
 
-for letra in texto:
-    if letra.upper() in "AEIOU":
-        num_vogals = num_vogals + 1
+# for letra in texto:
+#     if letra.upper() in "AEIOU":
+#         num_vogals = num_vogals + 1
         
-print("\nNum vogais", num_vogals)
+# print("\nNum vogais", num_vogals)
 
 
 
-# print("Heloo", end=" ")
+# # print("Heloo", end=" ")
 
-# print("Grana")
+# # print("Grana")
