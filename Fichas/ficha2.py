@@ -30,7 +30,7 @@ for x in notas:
             notas_superiores_16 = notas_superiores_16 + 1
     
     
-percentagemAprova = (alunos_aprovados/numAlunos)*100
+percentagemAprova = round((alunos_aprovados/numAlunos)*100)
 
 print("A maior nota : ", maior)
 print("A menor nota : ", menor)
