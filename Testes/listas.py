@@ -20,4 +20,7 @@ nums.pop(3)# Posicao 3
 #Remover um numero da lista
 nums.remove(2)# Tira o numero 2 nao posiçao tira o numero mesmo
 
+total = len(nums) 
+print(total)
+
 print(nums)
