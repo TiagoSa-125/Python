@@ -49,10 +49,3 @@ while jogAgain == "S":
         numTentivas = 7
         ganhou = False
         numeroSecreto = randint(1,100)
-            
-        
-
-
-
-
-
