@@ -41,3 +41,19 @@ soma = sum(nums)
 maior = max(nums)
 menor = min(nums)
 media = soma/ len(nums)
+
+
+
+#Converter variavel para lista
+
+nome = "Grana"
+print("\n\n",nome)
+nome = list(nome)
+print(nome)
+
+
+
+lista=["AI", "Mar", "Abr"]
+novos_elementos = input("Novos dados: ")
+lista.extend(novos_elementos.split(','))
+print(lista)
