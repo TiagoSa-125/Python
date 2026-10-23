@@ -7,3 +7,8 @@ conjunto = {1, 2, 3, 2} # Imutavel :  não se pode adicionar remover elementos e
 dicionario = {"nome": "Marcelo"}
 print(tupla)
 print(conjunto)
+
+
+palavra = "Dados"
+# if palavra.startswith("D") 
+# ou o endswith
