@@ -58,7 +58,7 @@ print(nomeLista2)
 #Ex 8
 
 listaFruta = ["Maca", "Pera", "Laranja", "Maracuja"]
-tamanhoFruta = [tamanho for tamanho in listaFruta if len(tamanho) > 5 else tamanho == 0]
+tamanhoFruta = [len(fruta) if len(fruta) > 5 else 0 for fruta in listaFruta]
 
 print(tamanhoFruta)
 
