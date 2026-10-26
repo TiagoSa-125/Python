@@ -29,7 +29,6 @@ maior5num = [num for num in numLista if num > 5]
 print(maior5num)
 
 
-
 #Ex 5
 
 nome = "MarcelO ViEiRaamorIM"
