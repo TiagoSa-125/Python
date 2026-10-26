@@ -7,7 +7,7 @@ soma = 0
 num_notas = 0
 for notas_disciplina in aluno["notas"].values():
     soma += sum(notas_disciplina)
-    no_notas += len[notas_disciplina]
+    num_notas += len[notas_disciplina]
 
 
 
