@@ -27,14 +27,26 @@ while True:
             products.append(add(prd,pri,iva))
         case 2:
             for product in products:
+                if "final_price" not in product.keys():
+                    update_final_price(product)
                 print(print_product(product))
+                x = input("Prima uma tecla para continuar")
         case 3:
             for product in products:
-                update_final_price(products[0])
+                update_final_price(products)
                 
         case 4:
+            encontrei = False
             resposta = input("Que produto queres que imprima: ")
-            print_product(resposta)
+            for p in products:
+                if p["product"] == resposta:
+                    print(print_product(p))
+                    encontrei = True
+            if not encontrei:
+                print("Este produto nao faz parte da lista")
+            x = input("Prima uma tecla para continuar")
+        case 5:
+            break            
             
     #os.system("clear")
     escolha = menu()
