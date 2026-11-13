@@ -33,12 +33,17 @@ while True:
         case "1":
             verInventario(Inventario)
         case "2":
+                for livro in Inventario.values():
+                    id = livro["id"] + 1
+                    
                 titulo = input("Qual o titulo do livro: ")
                 autor = input("Qual o autor do livro: ")
                 quantidade = int(input("Quantas unidades tem: "))
                 preco = float(input("Qual o preco do livro: "))
 
-                Inventario["livro3"] =adicionaItem(titulo, autor, quantidade, preco)
+                Inventario["livro3"] =adicionaItem(id, titulo, autor, quantidade, preco)
+        case "3":
+            
         case "5":
             break   
 

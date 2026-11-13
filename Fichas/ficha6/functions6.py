@@ -6,8 +6,17 @@ def verInventario(inventario):
     else:
         print("Nao tens livros no inventario")
 
-def adicionaItem(titulo, autor, quantidade, preco):
-    return {"id": 3, "titulo": titulo, "autor": autor, "quantidade": quantidade, "preco": preco}
+def adicionaItem(id, titulo, autor, quantidade, preco):
+    return {"id": id, "titulo": titulo, "autor": autor, "quantidade": quantidade, "preco": preco}
+
+def atualizarStock(id_pesquisa, inventario):
+    encontrei = False
+    for livro in inventario:
+        if livro["id"] == id_pesquisa:
+            livro["quantidade"] =int(input("Digite o stock atualizado: "))
+            encontrei = True
+        if not encontrei:
+            print("Não existe nehum livro")
 
 
 def menu():
