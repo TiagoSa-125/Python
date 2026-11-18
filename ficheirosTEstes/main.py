@@ -1,3 +1,6 @@
+import json
+
+
 ficheiro = "ficheirosTEstes/dados.txt"
 
 
@@ -14,3 +17,16 @@ with open(nomes, "w") as fi:
     fi.write("Tiago\n")
 
 
+nomesJSon = "ficheirosTEstes/nomes.json"
+with open(nomesJSon, "r") as f:
+    dados = json.load(f)
+
+print(dados)
+
+
+nome = {"nome": "Maria", "idade": 27}
+
+dados.append(nome)
+
+with open(nomesJSon, "w") as f:
+    json.dump(dados, f, indent=4)
