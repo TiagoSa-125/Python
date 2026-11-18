@@ -24,7 +24,7 @@ with open(nomesJSon, "r") as f:
 print(dados)
 
 
-nome = {"nome": "Maria", "idade": 27}
+nome = {"nome": "Balls", "idade": 67}
 
 dados.append(nome)
 
