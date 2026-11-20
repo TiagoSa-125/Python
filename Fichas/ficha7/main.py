@@ -24,6 +24,8 @@ while True:
         case 7:
             visualizarLog()
         case 8:
+            livros = carregarJson()
+        case 9:
             break
 
 print("Aplicação finalizada!")

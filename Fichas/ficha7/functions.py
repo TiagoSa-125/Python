@@ -22,6 +22,18 @@ def guardarJson(inventario):
     with open(ficheiro_Json, "w") as f:
         #O dump guarda no json
         json.dump(inventario,f,indent=4)
+        
+        
+
+def carregarJson():
+    if not path.exists(ficheiro_Json):
+            print("Ficheiro não existe ou esta noutra localização")
+            return []
+    else:
+        with open(ficheiro_Json, "r") as f:
+            dados = json.load(f) 
+            print("Dados carregados com sucesso")
+            return dados
     
 
 @meu_decorador
@@ -128,6 +140,7 @@ def menu():
     print("5- Pesquisar livros por autor ou título")
     print("6- Valor atual em stock")
     print("7- Consultar historico de operações")
-    print("8- Sair")
+    print("8- Carregar Inventario")
+    print("9- Sair")
     op = int(input("\nEscolha uma opção: "))
     return op
