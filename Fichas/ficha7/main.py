@@ -22,6 +22,8 @@ while True:
         case 6:
             report(livros)
         case 7:
+            visualizarLog()
+        case 8:
             break
 
 print("Aplicação finalizada!")
