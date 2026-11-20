@@ -1,6 +1,7 @@
 from time import sleep
 from os import system, path
 from datetime import datetime
+import json
 
 def meu_decorador(funcao):
     def wrapper(*args, **kwargs):
@@ -10,10 +11,18 @@ def meu_decorador(funcao):
     return wrapper
 
 ficheiro_log = "Fichas/ficha7/inventario.log"
+ficheiro_Json = "Fichas/ficha7/inventario.json"
 
 def registar_log(mensagem):
     data = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     return f"[{data}] - {mensagem}\n"
+
+
+def guardarJson(inventario):
+    with open(ficheiro_Json, "w") as f:
+        #O dump guarda no json
+        json.dump(inventario,f,indent=4)
+    
 
 @meu_decorador
 def visualizarLog():
@@ -54,6 +63,8 @@ def add(inventario: list):
     with open(ficheiro_log,"a") as f:
         mensagem = f"Livro adicionado com sucesso: {titulo} ({livro["id"]})"
         f.write(registar_log(mensagem))
+        
+    guardarJson(inventario)
 
 @meu_decorador
 def update_stock(inventario):
@@ -67,6 +78,7 @@ def update_stock(inventario):
             found = True
             with open(ficheiro_log,"a") as f:
                 mensagem = f"Stock atualizado: {livro["titulo"]} ({livro["id"]}); Qtde anterior: {stock_anterior}; Qtde atual: {new_stock}   "
+                guardarJson(inventario)
                 f.write(registar_log(mensagem))
             break
     if not found:
