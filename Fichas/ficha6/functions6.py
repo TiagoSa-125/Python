@@ -1,29 +1,76 @@
-def verInventario(inventario):
-    if inventario.keys():
-        for livro in inventario.values():
-            print("\nId: ",livro["id"], " \nDo livro: ", livro["titulo"], " de ", livro["autor"], "\nTem ",
-                livro["quantidade"], " em stock e cada unidade custa", livro["preco"])
+def view(inventario):
+    if len(inventario) == 0:
+        print("Não há livros no inventário atual!")
     else:
-        print("Nao tens livros no inventario")
+        for livro in inventario:
+            print(f"{livro["titulo"]} (Id {livro["id"]})")
+            print(f"Autor: {livro["autor"]}; Stock: {livro["qtde"]}; Preço atual: {livro["preco"]}")
+            print("-"*40)
 
-def adicionaItem(id, titulo, autor, quantidade, preco):
-    return {"id": id, "titulo": titulo, "autor": autor, "quantidade": quantidade, "preco": preco}
+def novo_id(inventario):
+    if len(inventario) == 0:
+        return 1
+    return inventario[len(inventario)-1]["id"] + 1
 
-def atualizarStock(id_pesquisa, inventario):
-    encontrei = False
+def add(inventario: list):
+    print("DADOS DO LIVRO\n")
+    titulo = input("Título: ")
+    autor = input("Autor: ")
+    stock = int(input("Qtde atual: "))
+    preco = float(input("Preço de venda: "))
+
+    livro = {"id": novo_id(inventario), "titulo": titulo, "autor": autor, "qtde": stock, "preco": preco}
+    inventario.append(livro)
+
+def update_stock(inventario):
+    found = False
+    id_search = int(input("Digite o id do livro para atualização do stock: "))
     for livro in inventario:
-        if livro["id"] == id_pesquisa:
-            livro["quantidade"] =int(input("Digite o stock atualizado: "))
-            encontrei = True
-        if not encontrei:
-            print("Não existe nehum livro")
+        if livro["id"] == id_search:
+            new_stock = int(input("Stock atual: "))
+            livro["qtde"] = new_stock
+            found = True
+            break
+    if not found:
+        print("Não existe nenhum livro em stock com o id indicado")
 
+def remove(inventario: list):
+    found = False
+    id_search = int(input("Digite o id do livro para remoção do inventário: "))
+    for livro in inventario:
+        if livro["id"] == id_search:
+            inventario.remove(livro)
+            found = True
+            break
+    if not found:
+        print("Não existe nenhum livro em stock com o id indicado")
+
+def search_by_author_or_title(inventario: list):
+    found = False
+    search = input("Digite o nome do livro ou do autor: ")
+    for livro in inventario:
+        autor: str = livro["autor"]
+        titulo: str = livro["titulo"]
+        if autor.find(search) >= 0 or titulo.find(search) >= 0:
+            print(f"- {titulo} ({autor})")
+            found = True
+    if not found:
+        print("Não existe nenhum livro em stock com o id indicado") 
+
+def report(inventario):
+    valor_inventario = 0
+    for livro in inventario:
+        valor_inventario += livro["qtde"] * livro["preco"]
+    print(f"Valor atual do inventário: {round(valor_inventario,2)} euros")
 
 def menu():
-    print("1- Ver Inventario")
-    print("2- Listar os produtos existentes")
-    print("3- Atualizar o preço final de todos os produtos existentes na lista")
-    print("4- Imprimir os dados de um produto específico")
-    print("5- Terminar a aplicação")
-    op = input("Escolhe uma opcão : ")
+    print("GESTOR INVENTÁRIO\n")
+    print("1- Visualizar inventário")
+    print("2- Novo livro")
+    print("3- Atualizar stock")
+    print("4- Remover livro")
+    print("5- Pesquisar livros por autor ou título")
+    print("6- Valor atual em stock")
+    print("7- Sair")
+    op = int(input("\nEscolha uma opção: "))
     return op
