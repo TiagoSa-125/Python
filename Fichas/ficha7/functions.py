@@ -28,11 +28,15 @@ def guardarJson(inventario):
 def carregarJson():
     if not path.exists(ficheiro_Json):
             print("Ficheiro não existe ou esta noutra localização")
+            sleep(2)
+            system("clear")
             return []
     else:
         with open(ficheiro_Json, "r") as f:
             dados = json.load(f) 
             print("Dados carregados com sucesso")
+            sleep(2)
+            system("clear")
             return dados
     
 
