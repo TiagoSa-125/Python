@@ -18,6 +18,12 @@ def carregaLivros(ficheiro):
                 
 teste = carregaLivros("Fichas/ficha8/livros.txt")
 
+def livros_dsp(ficheiro):
+    livrosdisp = 0
+    with open(ficheiro, "r") as f:
+        for livro in len.ficheiro:
+            livrosdisp += 1
+            
 
 for livro in teste:
     print(livro)
