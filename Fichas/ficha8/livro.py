@@ -14,3 +14,6 @@ class Livro:
             self.estadoDispo = "emprestado"
             return True
         return False
+
+    def devolver(self):
+        self.estadoDispo = "disponivel"

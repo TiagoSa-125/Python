@@ -25,5 +25,28 @@ def livros_dsp(ficheiro):
             livrosdisp += 1
             
 
-for livro in teste:
-    print(livro)
+def novo_livro():
+    print("-----Novo Livro----")
+    titulo = input("Titulo do livro:") 
+    autor = input("Quem é o autor:") 
+    anoPublica = input("Qual o ano de publicação:") 
+    livro = Livro(titulo, autor, anoPublica)
+    return livro
+
+
+def livroMAisAntigo(lista:list[Livro]):
+    ano_antigo = min(anoPublica)
+    for livro in lista:
+        if livro.anoPublica == ano_antigo:
+            return livro
+
+
+def guardarLivro(nomeFicheiro, lista: list[Livro]):
+    with open(nomeFicheiro, "w") as f:
+        for livro in lista:
+            if livro.estado == "disponivel":
+                estado = 1
+            else:
+                estado =0
+            f.writeline(f"")
+
